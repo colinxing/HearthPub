@@ -1,10 +1,10 @@
 # HearthPub
 README
-	This is an instruction of CSCE608 Project1. The folder ‘Project1(XaioquanXing-626008824)’ contains:
-1.	Project report.
-2.	A directory called Source code which is a VS project of ASP.NET . All project douments and source code can be seen there.
-3.	A directory called Database, which is the MySQL database of my project.
-4.	Readme.
+An Hearthstone cards database project based on Asp.net Core using C# and MySQL database. For the front-end part, using Ap.net MVC.
+
+1.	A directory called Source code which is a VS project of ASP.NET . All project douments and source code can be seen there.
+2.	A directory called Database, which is the MySQL database of my project.
+3.	Readme.
 
 To run the project, import the data to your local database then connect it, make sure it is open. Open the VS project in my ‘Source code’ folder, for connecting to the database, the connection information should be:
  

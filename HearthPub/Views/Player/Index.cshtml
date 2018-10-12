@@ -1,0 +1,32 @@
+﻿@model IEnumerable<HearthPub.Models.Player>
+@{
+    ViewBag.Title = "HearthPub";
+}
+<h1>Player Information</h1>
+<h3 class="text-center">This page contains all players in HearthStone world</h3>
+<table id="table" class="table">
+    <tr>
+        <th>Player Name</th>
+        <th>Comment</th>
+        <th>Look by Heros</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelitem => item.Playerclass)</td>
+            <td>@Html.DisplayFor(modelitem => item.Comment)</td>
+            <td>
+                <form action="~/Card/index" method="post">
+                    <input type="hidden" class="form-control" name="player" value="@item.Playerclass">
+                    <button class="btn btn-info mr-2" type="submit">View cards by the Hero</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+<script>
+    if('@ViewBag.message' != "")
+    {
+        window.location.href="../Home";
+    }
+</script>

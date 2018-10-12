@@ -1,0 +1,32 @@
+﻿@model IEnumerable<HearthPub.Models.Users>
+@{
+    ViewBag.Title = "HearthPub";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <form action="~/Auth/Getinfo" method="post">
+            <h2 class="text-center text-primary">Sign Up</h2>
+            <hr>
+
+            <div class="form-group">
+                Username：<input type="text" class="form-control" required name="username" placeholder="Username">
+            </div>
+
+            <div class="form-group">
+                Password：<input type="password" class="form-control" required name="password" placeholder="Password">
+            </div>
+
+            <div class="form-group text-center">
+                <button class="btn btn-success mr-2" type="submit">Register</button>
+                <button class="btn btn-default ml-2" type="button" onclick="location.href='Home'">Not now</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

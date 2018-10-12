@@ -1,0 +1,79 @@
+﻿<script>
+    if('@ViewBag.message' != "")
+    {
+        window.location.href="../Home";
+    }
+</script>
+
+@model IEnumerable<HearthPub.Models.Cards>
+@{
+    ViewBag.Title = "HearthPub";
+}
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Card</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/alertifyjs/css/alertify.min.css" />
+    <link rel="stylesheet" href="~/alertifyjs/css/themes/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/blog/blog.css" />
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+</head>
+<h1>Card</h1>
+<div nowrap class="container">
+    <form class="form-inline text-right" action="~/Card/Index" method="post">
+        <font size="3" class="text-success">Search card by cayd name (you have to enter the exact name) : </font>
+        <input class="form-control" name="name" placeholder="Search">
+        <button class="btn btn-warning mr-5" type="submit">Search</button>
+    </form>
+    <h3 class="text-info">To get more information and edit on cards, click the 'Detail' buttons</h3>
+    <h3 class="text-info">Also, if you want to build your own card, The 'Add New Card' button will be helpful:) <a href="Card/Add" class="btn btn-info btn-lg mr-5">Add New Card!</a></h3>
+</div>
+<table id="table" class="table">
+    <tr>
+        <th>CardName</th>
+        <th>CardGroup</th>
+        <th>CardCost</th>
+        <th>CardSet</th>
+        <th>CardType</th>
+        <th>Detail</th>
+        <th>Delete</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelitem => item.CardName)</td>
+            <td>@Html.DisplayFor(modelitem => item.CardGroup)</td>
+            <td>@Html.DisplayFor(modelitem => item.CardCost)</td>
+            <td>@Html.DisplayFor(modelitem => item.CardSet)</td>
+            <td>@Html.DisplayFor(modelitem => item.CardType)</td>
+            <td>
+                <form action="~/Card/Detail" method="post">
+                    <input type="hidden" class="form-control" name="Name" value="@item.CardName">
+                    <button class="btn btn-success mr-2" type="submit">Detail</button>
+                </form>
+            </td>
+            <td>
+                <form action="~/Card/Delete" method="post">
+                    <input type="hidden" class="form-control" name="Dname" value="@item.CardName">
+                    <button class="btn btn-danger mr-2" type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+
+@*<script>
+        var table = document.getElementById('table'),rIndex;
+
+        for(var i = 1; i < table.rows.length; i++)
+        {
+            document.getElementsByName("Name")[i-1].value = table.rows[i].cells[0].innerHTML;
+            document.getElementsByName("Dname")[i-1].value = table.rows[i].cells[0].innerHTML;
+        }
+    </script>*@

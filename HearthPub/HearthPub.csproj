@@ -1,0 +1,85 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="MySql.Data" Version="8.0.12" />
+    <PackageReference Include="bootstrap" Version="4.0.0" />
+    <PackageReference Include="FontAwesome" Version="4.7.0" />
+    <PackageReference Include="AlertifyJS" Version="1.11.1" />
+    <PackageReference Include="alertify" Version="0.3.11" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Card\" />
+    <Folder Include="Content\" />
+    <Folder Include="Views\Auth\" />
+    <Folder Include="Views\CardSet\" />
+    <Folder Include="Views\Player\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\css\blog\blog.css" />
+    <Content Remove="wwwroot\alertifyjs\alertify.js" />
+    <Content Remove="wwwroot\alertifyjs\alertify.min.js" />
+    <Content Remove="wwwroot\alertifyjs\css\alertify.css" />
+    <Content Remove="wwwroot\alertifyjs\css\alertify.min.css" />
+    <Content Remove="wwwroot\alertifyjs\css\alertify.rtl.css" />
+    <Content Remove="wwwroot\alertifyjs\css\alertify.rtl.min.css" />
+    <Content Remove="wwwroot\alertifyjs\css\themes\bootstrap.css" />
+    <Content Remove="wwwroot\alertifyjs\css\themes\bootstrap.min.css" />
+    <Content Remove="wwwroot\alertifyjs\css\themes\bootstrap.rtl.css" />
+    <Content Remove="wwwroot\alertifyjs\css\themes\bootstrap.rtl.min.css" />
+    <Content Remove="wwwroot\alertifyjs\css\themes\default.css" />
+    <Content Remove="wwwroot\alertifyjs\css\themes\default.min.css" />
+    <Content Remove="wwwroot\alertifyjs\css\themes\default.rtl.css" />
+    <Content Remove="wwwroot\alertifyjs\css\themes\default.rtl.min.css" />
+    <Content Remove="wwwroot\alertifyjs\css\themes\semantic.css" />
+    <Content Remove="wwwroot\alertifyjs\css\themes\semantic.min.css" />
+    <Content Remove="wwwroot\alertifyjs\css\themes\semantic.rtl.css" />
+    <Content Remove="wwwroot\alertifyjs\css\themes\semantic.rtl.min.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Views\Card\bootstrap.min.css" />
+    <None Remove="Views\CardSet\bootstrap.min.css" />
+    <None Remove="Web References\System.Web\tempconvert.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\css\blog\blog.css" />
+    <None Include="wwwroot\alertifyjs\alertify.js" />
+    <None Include="wwwroot\alertifyjs\alertify.min.js" />
+    <None Include="wwwroot\alertifyjs\css\alertify.css" />
+    <None Include="wwwroot\alertifyjs\css\alertify.min.css" />
+    <None Include="wwwroot\alertifyjs\css\alertify.rtl.css" />
+    <None Include="wwwroot\alertifyjs\css\alertify.rtl.min.css" />
+    <None Include="wwwroot\alertifyjs\css\themes\bootstrap.css" />
+    <None Include="wwwroot\alertifyjs\css\themes\bootstrap.min.css" />
+    <None Include="wwwroot\alertifyjs\css\themes\bootstrap.rtl.css" />
+    <None Include="wwwroot\alertifyjs\css\themes\bootstrap.rtl.min.css" />
+    <None Include="wwwroot\alertifyjs\css\themes\default.css" />
+    <None Include="wwwroot\alertifyjs\css\themes\default.min.css" />
+    <None Include="wwwroot\alertifyjs\css\themes\default.rtl.css" />
+    <None Include="wwwroot\alertifyjs\css\themes\default.rtl.min.css" />
+    <None Include="wwwroot\alertifyjs\css\themes\semantic.css" />
+    <None Include="wwwroot\alertifyjs\css\themes\semantic.min.css" />
+    <None Include="wwwroot\alertifyjs\css\themes\semantic.rtl.css" />
+    <None Include="wwwroot\alertifyjs\css\themes\semantic.rtl.min.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Card\bootstrap.min.css">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\CardSet\bootstrap.min.css">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>

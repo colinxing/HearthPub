@@ -1,0 +1,13 @@
+﻿<script src="~/alertifyjs/alertify.min.js"></script>
+<script>
+    if('@ViewBag.Message' == "Register Successfully")
+    {
+        alert("Registration Success");
+        window.location.href="../Home";
+    }
+    else
+    {
+        alert("Username Already Existed");
+        window.location.href="../Auth";
+    }
+</script>

@@ -1,0 +1,123 @@
+﻿<script>
+    if('@ViewBag.Message' != "")
+    {
+        alert('@ViewBag.Message');
+        window.location.href = "../Card";
+    }
+</script>
+
+@model HearthPub.Models.CardDetails
+@{
+    ViewBag.Title = "HearthPub";
+}
+
+
+<!doctype html>
+
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card Detail</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/alertifyjs/css/alertify.min.css" />
+    <link rel="stylesheet" href="~/alertifyjs/css/themes/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/blog/blog.css" />
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+</head>
+<body>
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-md-6">
+                <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+                    <div class="card-body d-flex flex-column align-items-start">
+                        <h3 class="d-inline-block mb-2 text-primary">Details of @Html.DisplayFor(modelitem => Model.CardName)</h3>
+                        <h3 class="mb-0">
+                            <p class="text-dark">Here is the very detail informations of the card, you may edit the card here</p>
+                        </h3>
+                    <div class="mb-1 text-muted"></div>
+
+                    </div>
+                    <img class="card-img-right flex-auto d-none d-lg-block text-center" style="width: 265px; height: 350px;" src="@Html.DisplayFor(modelitem => Model.CardUrl)" onerror="this.src='https://rupco.org/wp-content/uploads/image-coming-soon.jpg'"/>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <br/>
+                <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+                    <br />
+                    <div class="card-body d-flex flex-column align-items-start">
+                        <br />
+                        <strong class="d-inline-block mb-2 text-success">Contains everything you may want to know about the card:</strong>
+
+                        <table id="table" border="0" class="table">
+                            <tr>
+                                <th>CardName</th>
+                                <th>CardGroup</th>
+                                <th>CardCost</th>
+                                <th>CardSet</th>
+                            </tr>
+                            <tr>
+                                <td height="60px">@Html.DisplayFor(modelitem => Model.CardName)</td>
+                                <td>@Html.DisplayFor(modelitem => Model.CardGroup)</td>
+                                <td>@Html.DisplayFor(modelitem => Model.CardCost)</td>
+                                <td>@Html.DisplayFor(modelitem => Model.CardSet)</td>
+                            </tr>
+                            <tr>
+                                <th>CardCollect</th>
+                                <th>CardRace</th>
+                                <th>CardEarn</th>
+                                <th>CardTarget</th>
+                            </tr>
+                            <tr>
+                                <td height="60px">@Html.DisplayFor(modelitem => Model.CardCollect)</tdheight="60px">
+                                <td>@Html.DisplayFor(modelitem => Model.CardRace)</td>
+                                <td>@Html.DisplayFor(modelitem => Model.CardEarn)</td>
+                                <td>@Html.DisplayFor(modelitem => Model.CardTarget)</td>
+                            </tr>
+                            <tr>
+                                <th>CardType</th>
+                                <th>CardRare</th>
+                                <th>CardAttack</th>
+                                <th>CardHealth</th>
+                            </tr>
+                            <tr>
+                                <td height="60px">@Html.DisplayFor(modelitem => Model.CardType)</td>
+                                <td>@Html.DisplayFor(modelitem => Model.CardRare)</td>
+                                <td>@Html.DisplayFor(modelitem => Model.CardAttack)</td>
+                                <td>@Html.DisplayFor(modelitem => Model.CardHealth)</td>
+                            </tr>
+                        </table>
+
+                    </div>
+                    <h4>Funtion:</h4>
+                    <div class="col-md-6">
+                        <h5>@Html.DisplayFor(modelitem => Model.CardText)</h5>
+                    </div>
+
+                    <div class="col-md-6 align-items-start">
+                        <form action="~/Card/Edit" method="post">
+                            <input type="hidden" class="form-control col-md-6" name="Name" value="@Model.CardName">
+                            <button class="btn btn-warning btn-lg mr-5 text-right" type="submit">Edit Card</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
+
+

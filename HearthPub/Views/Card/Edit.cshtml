@@ -1,0 +1,162 @@
+﻿@model HearthPub.Models.CardDetails
+@{
+    ViewBag.Title = "HearthPub";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+    <h1 class="text-center">Edit @Html.DisplayFor(modelitem => Model.CardName)</h1>
+    <div class="container">
+        <form action="~/Card/EditCard" method="post">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="CardId">CardId</label>
+                    <input required type="text" class="form-control" id="CardId" name="CardId"  value="@Html.DisplayFor(modelitem => Model.CardId)" placeholder="Card_Id indicate which set the card in(such as: GVG_001)">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="CardName">CardName</label>
+                    <input required type="text" class="form-control" id="CardName" name="CardName" value="@Html.DisplayFor(modelitem => Model.CardName)" placeholder="Your Card Name">
+                </div>
+            </div>
+            <div class="form-group col-md-12">
+                <label for="CardText">The main text of your card</label>
+                <input required type="text" class="form-control" id="CardText" name="CardText" value="@Html.DisplayFor(modelitem => Model.CardText)" placeholder="What is the function of your card?">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="CardAttack">CardAttack</label>
+                <input type="text" class="form-control" id="CardAttack" name="CardAttack" value="@Html.DisplayFor(modelitem => Model.CardAttack)" placeholder="Your Card Attack">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="CardHealth">CardHearth</label>
+                <input type="text" class="form-control" id="CardHealth" name="CardHealth" value="@Html.DisplayFor(modelitem => Model.CardHealth)" placeholder="Your Card Health">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="CardCost">CardCost</label>
+                <input type="text" class="form-control" id="CardCost" name="CardCost" value="@Html.DisplayFor(modelitem => Model.CardCost)" placeholder="Your Card Cost">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="CardUrl">CardPicture</label>
+                <input type="text" class="form-control" id="CardUrl" name="CardUrl" value="@Html.DisplayFor(modelitem => Model.CardUrl)" placeholder="Design and paste path">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="CardGroup">CardGroup</label>
+                    <select id="CardGroup" name="CardGroup" class="form-control">
+                        <option selected>@Html.DisplayFor(modelitem => Model.CardGroup)</option>
+                        <option>DREAM</option>
+                        <option>DEATHKNIGHT</option>
+                        <option>DRUID</option>
+                        <option>HUNTER</option>
+                        <option>MAGE</option>
+                        <option>NEUTRAL</option>
+                        <option>PALADIN</option>
+                        <option>PRIEST</option>
+                        <option>ROGUE</option>
+                        <option>SHAMAN</option>
+                        <option>WARLOCK</option>
+                        <option>WARRIOR</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="CardType">CardType</label>
+                    <select id="CardType" name="CardType" class="form-control">
+                        <option selected>@Html.DisplayFor(modelitem => Model.CardType)</option>
+                        <option>MINION</option>
+                        <option>SPELL</option>
+                        <option>WEAPON</option>
+                        <option>HERO</option>
+                        <option>HERO_POWER</option>
+                        <option>ENCHANTMENT</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="CardSet">CardSet</label>
+                    <select id="CardSet" name="CardSet" class="form-control">
+                        <option selected>@Html.DisplayFor(modelitem => Model.CardSet)</option>
+                        <option>GVG</option>
+                        <option>BRM</option>
+                        <option>CHEAT</option>
+                        <option>COMMON</option>
+                        <option>CORE</option>
+                        <option>CREDITS</option>
+                        <option>EXPERIT</option>
+                        <option>GANGS</option>
+                        <option>GVG</option>
+                        <option>KARA</option>
+                        <option>LOE</option>
+                        <option>MISSIONS</option>
+                        <option>MAXX</option>
+                        <option>OG</option>
+                        <option>TB</option>
+                        <option>TGT</option>
+                        <option>RARE</option>
+                        <option>REWARD</option>
+                        <option>PROMO</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="CardRare">CardRare</label>
+                    <select id="CardRare" name="CardRare" class="form-control">
+                        <option selected>@Html.DisplayFor(modelitem => Model.CardRare)</option>
+                        <option>COMMON</option>
+                        <option>RARE</option>
+                        <option>EPIC</option>
+                        <option>LEGENDARY</option>
+                        <option>FREE</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="CardCollect">If the card is Collectible</label>
+                    <select id="CardCollect" name="CardCollect" class="form-control">
+                        <option selected>TRUE</option>
+                        <option>FALSE</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="CardRace">Race of it</label>
+                    <select id="CardRace" name="CardRace" class="form-control">
+                        <option selected>@Html.DisplayFor(modelitem => Model.CardRace)</option>
+                        <option>BEAST</option>
+                        <option>DEMON</option>
+                        <option>DRAGON</option>
+                        <option>MECHANICAL</option>
+                        <option>MURLOC</option>
+                        <option>PIRATE</option>
+                        <option>TOTEM</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="CardEarn">How to earn</label>
+                    <select id="CardEarn" name="CardEarn" class="form-control">
+                        <option selected>@Html.DisplayFor(modelitem => Model.CardEarn)</option>
+                        <option>UNLOCK IN SETS</option>
+                        <option>UNLOCK IN MISSION</option>
+                        <option>LOCKED</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="CardTarget">Target</label>
+                    <select id="CardTarget" name="CardTarget" class="form-control">
+                        <option selected>@Html.DisplayFor(modelitem => Model.CardTarget)</option>
+                        <option>ANY</option>
+                        <option>MINION</option>
+                        <option>HERO</option>
+                        <option>SELF</option>
+                        <option>NO TARGET</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary col-md-12">Save</button>
+        </form>
+    </div>
+</body>
+</html>

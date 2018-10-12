@@ -1,0 +1,91 @@
+﻿<script src="~/alertifyjs/alertify.min.js"></script>
+<script>
+    if('@ViewBag.sessionv' == "Please login first")
+    {
+        alertify.error('Please Login First');
+    }
+    else
+    {
+        alertify.success("Logged In, Welcome @ViewBag.sessionv!!!");
+    }
+</script>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HearthPub</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/alertifyjs/css/alertify.min.css" />
+    <link rel="stylesheet" href="~/alertifyjs/css/themes/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/blog/blog.css" />
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+</head>
+<body>
+    <section class="jumbotron text-center">
+        <div class="container">
+            <form id="login" class="form-inline my-2 my-lg-2 text-right" action="Auth/Login">
+                <div class="col-auto">
+                    <input class="form-control mr-sm-2" type="text" name="username"
+                           placeholder="Username">
+                    <input class="form-control mr-sm-2" type="password" name="password"
+                           placeholder="Password" />
+                    <button class="btn btn-outline-success btn-success my-2 my-sm-0" type="submit">Login</button>
+                </div>
+                <font size="2" style="color: red">Please login in first, and you can view all card and help edit the card dasebase :)</font>
+            </form>
+            <div id="logout">
+                <font size="10">Good to see you, @ViewBag.sessionv !</font>
+                <br/>
+                <a href="Auth/Logout" class="btn btn-outline-success my-2 my-sm-0 "text-right">Logout</a>
+            </div>
+            <h1 class="jumbotron-heading">Welcome to my HearthPub!</h1>
+            <p class="lead text-muted">A hearthStone dataset website, you can look for all published cards here or you can even design your own card!</p>
+            <br />
+            <p>
+                <a href="Auth" id="register" class="btn btn-primary mr-2">Register</a>
+            </p>
+            <br />
+        </div>
+    </section>
+    
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"></script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+</body>
+</html>
+
+<script>
+
+    var Value = '@(ViewBag.sessionv)';    
+    if(Value == "Please login first")
+    {
+        document.getElementById("logout").style.display="none";
+    }
+    else
+    {
+        document.getElementById("login").style.display="none";
+        document.getElementById("register").style.display="none";
+    }
+
+</script>

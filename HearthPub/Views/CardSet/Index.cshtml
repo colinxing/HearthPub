@@ -1,0 +1,45 @@
+﻿@model IEnumerable<HearthPub.Models.CardSet>
+@{
+    ViewBag.Title = "HearthPub";
+}
+<h1>CardSet(Released and Future plans)</h1>
+<h3 class="text-right">This page contains all sets already in HearthStone world, and also Blizzard‘s TBD sets</h3>
+<table id="table" class="table">
+    <tr>
+        <th>Setname</th>
+        <th>Releasetype</th>
+        <th>Releasedate</th>
+        <th>Removaldate</th>
+        <th>Common cards</th>
+        <th>Rare cards</th>
+        <th>Epic cards</th>
+        <th>Legendary cards</th>
+        <th>Look by set</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelitem => item.Setname)</td>
+            <td>@Html.DisplayFor(modelitem => item.Releasetype)</td>
+            <td>@Html.DisplayFor(modelitem => item.Releasedate)</td>
+            <td>@Html.DisplayFor(modelitem => item.Removaldate)</td>
+            <td>@Html.DisplayFor(modelitem => item.Common)</td>
+            <td>@Html.DisplayFor(modelitem => item.Rare)</td>
+            <td>@Html.DisplayFor(modelitem => item.Epic)</td>
+            <td>@Html.DisplayFor(modelitem => item.Legendary)</td>
+            <td>
+                <form action="~/Card/index" method="post">
+                    <input type="hidden" class="form-control" name="set" value="@item.Setname">
+                    <button class="btn btn-info mr-2" type="submit">View cards in the set</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+
+<script>
+    if('@ViewBag.message' != "")
+    {
+        window.location.href="../Home";
+    }
+</script>
